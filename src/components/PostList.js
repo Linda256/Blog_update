@@ -1,9 +1,25 @@
 import React from 'react';
 
-const PostList = (props)=>{
-    return(
-        <div> Posts From Users</div>
-    )
-}
+import PostItem from './PostItem';
+
+class PostList extends React.Component{
+    render(){
+        const postsList=this.props.posts.map(post=>{
+            return (
+                <div key={post.id}>
+                    <PostItem 
+                        post={post} 
+                        handleSelectUser={this.props.handleSelectUser}
+                        editPost={this.props.editPost}
+                    />
+                </div>
+            )
+        })
+                
+        return(  
+            <div>{postsList}</div>
+        )
+    }
+} 
 
 export default PostList;
