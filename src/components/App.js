@@ -39,8 +39,7 @@ class App extends React.Component{
         const selectedPosts=this.state.posts.filter(post=>post.userId===id);
         this.setState({postsOfSelectedUser:selectedPosts});
     }
-
-  
+ 
     render(){
        return (
             <div>
@@ -74,5 +73,4 @@ class App extends React.Component{
         )
     }
 }
-
 export default App;

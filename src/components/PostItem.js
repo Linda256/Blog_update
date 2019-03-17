@@ -16,14 +16,11 @@ class PostItem extends React.Component{
         this.setState({showInput: !this.state.showInput})
     }
 
-
     updatePost=()=>{
         let id = this.props.post.id;
         let text=this.refs.post.value;
-        console.log('refs',this.refs.post.value);
-        console.log('refs',this.refs);
-        console.log("text",text);
         this.props.editPost(id,text);
+        console.log("refs:",this.refs);
     }
 
     render(){
@@ -32,7 +29,7 @@ class PostItem extends React.Component{
             editStyle={display:'none'};
         }
         return (
-            <div key={this.props.post.id} >
+            <div ref="mydiv" key={this.props.post.id} >
                 <div>
                     <h4>Title: {this.props.post.title}</h4>
                     <p>{this.props.post.body}</p>
@@ -46,7 +43,7 @@ class PostItem extends React.Component{
                 </div>  
                 <div style={editStyle}>
                     <input type='text'  ref="post"/>
-                    <button onClick={()=>{
+                    <button ref="button" onClick={()=>{
                         this.updatePost()
                         this.toggleInput()}}>
                         Summit
@@ -57,5 +54,4 @@ class PostItem extends React.Component{
     }
     
 }
-
 export default PostItem;
